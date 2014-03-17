@@ -1,4 +1,4 @@
 misc-config
 ===========
 
-Various scripts and configuration files for personal use (but feel free to use them if you want!)
+Various scripts, code samples (for use with job applications!), and config files.

@@ -1,0 +1,70 @@
+#!/bin/bash
+# doomsday - a script to test the user's knowledge of the Doomsday algorithm
+
+year=$RANDOM
+day=$RANDOM
+year=$((year%400+1800))
+LEAPYEAR=0
+if [[ $((year%4)) -eq 0 ]]; then
+  if [[ $((year%100)) -ne 0 || $((year%400)) -eq 0 ]]
+    then LEAPYEAR=1
+  fi
+fi
+let "day = day % (365 + LEAPYEAR)"
+
+month=January
+daycopy=$((day+1))
+if [[ $daycopy -ge 32 ]]; then
+  month=February
+  let daycopy=$daycopy-31
+if [[ $daycopy -ge $((LEAPYEAR+29)) ]]; then
+  month=March
+  let daycopy=$daycopy-$((LEAPYEAR+28))
+if [[ $daycopy -ge 32 ]]; then
+  month=April
+  let daycopy=$daycopy-31
+if [[ $daycopy -ge 31 ]]; then
+  month=May
+  let daycopy=$daycopy-30
+if [[ $daycopy -ge 32 ]]; then
+  month=June
+  let daycopy=$daycopy-31
+if [[ $daycopy -ge 31 ]]; then
+  month=July
+  let daycopy=$daycopy-30
+if [[ $daycopy -ge 32 ]]; then
+  month=August
+  let daycopy=$daycopy-31
+if [[ $daycopy -ge 32 ]]; then
+  month=September
+  let daycopy=$daycopy-31
+if [[ $daycopy -ge 31 ]]; then
+  month=October
+  let daycopy=$daycopy-30
+if [[ $daycopy -ge 32 ]]; then
+  month=November
+  let daycopy=$daycopy-31
+if [[ $daycopy -ge 31 ]]; then
+  month=December
+  let daycopy=$daycopy-30
+fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi
+
+weekday=6
+let weekday=$weekday+$year
+let weekday=$weekday+$(((year+3)/4))
+let weekday=$weekday-$(((year-1)/100))
+let weekday=$weekday+$(((year-1)/400))
+let weekday=$weekday+$day
+weekday=$((weekday%7))
+
+echo "What day of the week is $month ${daycopy}, ${year}?"
+read ans
+if [[ $ans -eq $weekday ]]
+then
+  echo "Well done!"
+  exit 0
+else
+  echo "Sorry, the right answer was ${weekday}."
+  exit 1
+fi
+

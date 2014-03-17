@@ -1,0 +1,9 @@
+[user]
+	name = Nathan Hatch
+	email = nathanhatch297@gmail.com
+[merge]
+	tool = vimdiff
+[push]
+	default = simple
+[core]
+	editor = vim

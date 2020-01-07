@@ -1,8 +1,0 @@
-"amixer set PCM toggle; amixer set Speaker toggle"
-    XF86AudioMute
-
-"amixer set PCM 3-; amixer set Speaker 3-"
-    XF86AudioLowerVolume
-
-"amixer set PCM 3+; amixer set Speaker 3+"
-    XF86AudioRaiseVolume

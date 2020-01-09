@@ -55,6 +55,10 @@ highlight LineNr ctermfg=4
 filetype plugin indent on
 set grepprg=grep\ -nH\$*
 let g:tex_flavor = "latex"
+let g:Tex_DefaultTargetFormat = "pdf"
+let g:Tex_MultipleCompileFormats='pdf,bib,pdf'
+" Open .bib files in paste mode
+autocmd FileType bib setlocal paste
 
 "Allow saving of files as superuser when I forgot to start vim using sudo
 cmap w!! w !sudo tee % > /dev/null
@@ -71,8 +75,6 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 set tags=~/core/tags
 highlight Function ctermfg=Green
 
-let g:Tex_MultipleCompileFormats='pdf,bib,pdf'
-
 execute "set tabstop=".tabsize
 " something about visual mode, idk
 execute "set shiftwidth=".tabsize
@@ -85,8 +87,5 @@ set autoindent
 "autocmd FileType python exec 'setlocal shiftwidth='.tabsize
 "autocmd FileType python exec 'setlocal tabstop='.tabsize
 "autocmd FileType python exec 'setlocal softtabstop='.tabsize
-
-" Open .bib files in paste mode
-autocmd FileType bib setlocal paste
 
 let $BASH_ENV = "~/.bash_aliases"
